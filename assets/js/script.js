@@ -38,19 +38,43 @@ updateCounters();
 setInterval(updateCounters, 1000);
 
 // ===== CARROSSEL =====
-let index = 1;
-const totalFotos = 77;
+let photoIndex = 1;
+const totalPhotos = 77;
 
-function show() {
-  document.getElementById("carouselImg").src = `assets/img/foto${index}.jpg`;
+const photoImg = document.getElementById("carouselImg");
+const photoIndicator = document.getElementById("photoIndex");
+
+function showPhoto() {
+  photoImg.classList.add("fade");
+
+  setTimeout(() => {
+    photoImg.src = `/assets/img/foto${photoIndex}.jpg`;
+    photoIndicator.textContent = photoIndex;
+
+    photoImg.classList.remove("fade");
+  }, 400);
 }
-function next() {
-  index = index >= totalFotos ? 1 : index + 1;
-  show();
+
+function nextPhoto() {
+  photoIndex = photoIndex >= totalPhotos ? 1 : photoIndex + 1;
+  showPhoto();
 }
-function prev() {
-  index = index <= 1 ? totalFotos : index - 1;
-  show();
+
+function prevPhoto() {
+  photoIndex = photoIndex <= 1 ? totalPhotos : photoIndex - 1;
+  showPhoto();
+}
+
+
+
+function nextPhoto() {
+  photoIndex = photoIndex >= totalPhotos ? 1 : photoIndex + 1;
+  showPhoto();
+}
+
+function prevPhoto() {
+  photoIndex = photoIndex <= 1 ? totalPhotos : photoIndex - 1;
+  showPhoto();
 }
 
 // ===== MÚSICAS =====

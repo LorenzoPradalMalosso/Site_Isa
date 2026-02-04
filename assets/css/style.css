@@ -56,36 +56,65 @@ h2 {
 }
 
 /* Carrossel */
-.carousel {
+.photo-carousel {
   position: relative;
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.carousel img {
-  width: 100%;
-  max-height: 450px;
-  object-fit: cover;
-  border-radius: 15px;
+/* IMAGEM */
+.photo-carousel img {
+  max-width: 100%;
+  height: auto; /* 🔴 chave */
+  max-height: 80vh; /* limite só para não estourar tela */
+  object-fit: contain; /* 🔴 não corta */
+  border-radius: 20px;
 }
 
-.carousel button {
+/* BOTÕES */
+.photo-btn {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
   background: var(--azul);
   border: none;
   color: white;
-  font-size: 1.5em;
-  padding: 10px 15px;
+  font-size: 2em;
+  padding: 8px 14px;
   border-radius: 50%;
   cursor: pointer;
 }
 
-.prev {
+.photo-btn.prev {
   left: 10px;
 }
-.next {
+.photo-btn.next {
   right: 10px;
+}
+
+.photo-indicator {
+  text-align: center;
+  margin-top: 10px;
+  font-weight: bold;
+  color: var(--azul);
+}
+
+.photo-carousel img {
+  max-width: 100%;
+  height: auto;
+  max-height: 80vh;
+  object-fit: contain;
+  border-radius: 20px;
+
+  transition:
+    opacity 0.4s ease,
+    transform 0.4s ease;
+}
+
+.photo-carousel img.fade {
+  opacity: 0;
+  transform: scale(0.97);
 }
 
 /* Músicas */
@@ -143,4 +172,86 @@ footer {
   text-align: center;
   margin-top: 40px;
   font-size: 0.9em;
+}
+
+/* ===================== */
+/* 📱 RESPONSIVO MOBILE */
+/* ===================== */
+
+@media (max-width: 768px) {
+
+  body {
+    font-size: 15px;
+  }
+
+  h1 {
+    font-size: 2.2em;
+  }
+
+  h2 {
+    font-size: 1.4em;
+    text-align: center;
+  }
+
+  .container {
+    padding: 15px;
+  }
+
+  .card {
+    padding: 18px;
+    border-radius: 16px;
+  }
+
+  /* CONTADORES */
+  .counter {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  /* CARROSSEL DE FOTOS */
+  .photo-carousel {
+    width: 100%;
+  }
+
+  .photo-carousel img {
+    max-height: 70vh;
+  }
+
+  .photo-btn {
+    font-size: 1.6em;
+    padding: 6px 12px;
+  }
+
+  .photo-btn.prev {
+    left: 5px;
+  }
+
+  .photo-btn.next {
+    right: 5px;
+  }
+
+  /* CARROSSEL DE VÍDEOS */
+  .video-carousel {
+    flex-direction: column;
+  }
+
+  .video-btn {
+    position: static;
+    margin: 8px;
+  }
+
+  iframe {
+    height: 180px;
+  }
+
+  /* MENSAGENS FUTURAS */
+  .future-message {
+    font-size: 0.95em;
+  }
+
+  /* INDICADORES */
+  .photo-indicator,
+  .video-indicator {
+    font-size: 0.9em;
+  }
 }

@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <title>Nosso Diário 💕</title>
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/assets/css/style.css" />
   </head>
 
@@ -21,11 +21,16 @@
 
       <div class="card">
         <h2>📸 Nossas Memórias</h2>
-        <div class="carousel">
-          <button class="prev" onclick="prev()">‹</button>
-          <img id="carouselImg" src="/assets/img/foto1.jpg" />
-          <button class="next" onclick="next()">›</button>
+
+        <div class="photo-carousel">
+          <button class="photo-btn prev" onclick="prevPhoto()">‹</button>
+
+          <img id="carouselImg" src="/assets/img/foto1.jpg" alt="Nossa foto" />
+
+          <button class="photo-btn next" onclick="nextPhoto()">›</button>
         </div>
+
+        <p class="photo-indicator">Foto <span id="photoIndex">1</span> de 77</p>
       </div>
 
       <div class="card">
