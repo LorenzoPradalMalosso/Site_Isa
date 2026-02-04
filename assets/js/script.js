@@ -39,10 +39,10 @@ setInterval(updateCounters, 1000);
 
 // ===== CARROSSEL =====
 let index = 1;
-const totalFotos = 30;
+const totalFotos = 77;
 
 function show() {
-  document.getElementById("carouselImg").src = `fotos/foto${index}.jpg`;
+  document.getElementById("carouselImg").src = `assets/img/foto${index}.jpg`;
 }
 function next() {
   index = index >= totalFotos ? 1 : index + 1;
