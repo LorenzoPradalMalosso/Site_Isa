@@ -52,7 +52,11 @@ function showPhoto() {
     photoIndicator.textContent = photoIndex;
 
     photoImg.classList.remove("fade");
-  }, 400);
+  }, 80);
+
+  setTimeout(() => {
+    photoImg.classList.remove("fade");
+  }, 380);
 }
 
 function nextPhoto() {
