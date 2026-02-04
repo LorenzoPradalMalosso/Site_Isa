@@ -1,170 +1,146 @@
-/* Paleta de Cores (Clean & Neutra):
-   - Fundo: #f4f4f9 (Cinza/Branco muito suave)
-   - Destaque Principal: #d4a5a5 (Rosa Antigo / Nude)
-   - Destaque Secundário: #b0c4de (Azul Cinzento Suave)
-   - Texto Principal: #333333 (Cinza Escuro)
-*/
+:root {
+  --rosa: #f8c8dc;
+  --offwhite: #fffaf5;
+  --azul: #4a6fa5;
+  --texto: #444;
+}
 
-/* ------------------- BASE E TIPOGRAFIA ------------------- */
 body {
-    font-family: 'Open Sans', sans-serif;
-    background-color: #f4f4f9; 
-    color: #333333;
-    margin: 0;
-    padding: 0;
-    line-height: 1.6;
-}
-
-h1, h2 {
-    font-family: 'Montserrat', serif;
-    text-align: center;
-    color: #d4a5a5; /* Rosa Nude como destaque */
-    text-shadow: none;
-    margin-bottom: 20px;
-}
-
-header {
-    background-color: #ffffff; /* Branco Puro */
-    padding: 20px 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* Sombra suave e discreta */
-}
-
-header h1 {
-    color: #333333;
-    font-size: 1.8em;
+  margin: 0;
+  font-family: "Segoe UI", sans-serif;
+  background: var(--rosa);
+  color: var(--texto);
 }
 
 .container {
-    padding: 20px;
+  max-width: 900px;
+  margin: auto;
+  padding: 30px;
 }
 
-section {
-    background-color: #ffffff;
-    border-radius: 8px; /* Bordas suaves */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-    margin-bottom: 25px;
-    padding: 20px;
-    transition: transform 0.3s ease-in-out; 
+.card {
+  background: var(--offwhite);
+  border-radius: 20px;
+  padding: 25px;
+  margin-bottom: 30px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
 }
 
-/* Detalhe dinâmico mantido, mas sutil */
-section:hover {
-    transform: translateY(-3px); 
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+h1 {
+  text-align: center;
+  font-size: 2.4em;
+  color: var(--azul);
+  margin: 10px 10px 10px 10px;
 }
 
-/* ------------------- 1. CONTADOR ------------------- */
-.counter-box {
-    padding: 15px;
-    background-color: #e0e0e0; /* Cinza claro */
-    border: 1px solid #d4a5a5;
-    border-radius: 8px;
-    box-shadow: none;
+h2 {
+  color: var(--azul);
+  margin-bottom: 10px;
+  margin-top: 0px;
 }
 
-#counter {
-    font-size: 1.4em;
-    font-weight: 700;
-    color: #333333;
-    transition: color 0.5s;
+.counter {
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+  flex-wrap: wrap;
 }
 
-/* ------------------- 2. GALERIA DE FOTOS ------------------- */
-.gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); 
-    gap: 10px;
-    margin-top: 15px;
+.counter div {
+  margin: 10px;
 }
 
-.gallery-grid img {
-    width: 100%;
-    height: 150px;
-    object-fit: cover;
-    border-radius: 6px;
-    border: 3px solid #b0c4de; /* Azul Cinzento Suave para borda */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
+.counter span {
+  font-size: 1.6em;
+  font-weight: bold;
 }
 
-.gallery-grid img:hover {
-    transform: scale(1.05) rotate(0deg); /* Remove a rotação para um toque mais clean */
+/* Carrossel */
+.carousel {
+  position: relative;
+  text-align: center;
 }
 
-/* ------------------- 4. LINHA DO TEMPO ------------------- */
-.timeline-container::before {
-    background-color: #d4a5a5; /* Linha de destaque Rosa Nude */
-    left: 12px;
+.carousel img {
+  width: 100%;
+  max-height: 450px;
+  object-fit: cover;
+  border-radius: 15px;
 }
 
-.timeline-item {
-    margin-left: 35px; /* Ajusta a margem para a linha */
+.carousel button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: var(--azul);
+  border: none;
+  color: white;
+  font-size: 1.5em;
+  padding: 10px 15px;
+  border-radius: 50%;
+  cursor: pointer;
 }
 
-.timeline-item::before {
-    content: '•';
-    position: absolute;
-    top: 15px;
-    left: -10px;
-    font-size: 20px;
-    color: #d4a5a5;
-    font-weight: bold;
+.prev {
+  left: 10px;
+}
+.next {
+  right: 10px;
 }
 
-.timeline-date {
-    font-weight: 700;
-    color: #333333;
+/* Músicas */
+.video-carousel {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
-/* ------------------- 5. MENSAGENS FUTURAS ------------------- */
-.message-card {
-    background-color: #fcfcfc;
-    border: 1px solid #e0e0e0;
-    border-radius: 8px;
-    padding: 15px;
-    margin-bottom: 15px;
-    cursor: pointer;
-    transition: all 0.3s;
-    text-align: left;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+.video-carousel iframe {
+  border-radius: 15px;
+  border: none;
 }
 
-.message-card:hover {
-    background-color: #f0f0f0;
+.video-btn {
+  background: var(--azul);
+  border: none;
+  color: white;
+  font-size: 1.8em;
+  padding: 8px 14px;
+  border-radius: 50%;
+  cursor: pointer;
 }
 
-.message-card h3 {
-    color: #d4a5a5;
-    font-family: 'Poppins', sans-serif;
-    font-weight: 600;
+.video-btn:hover {
+  opacity: 0.85;
 }
 
-.message-card h3::before {
-    content: '🔒';
-    filter: grayscale(100%); /* Deixa o ícone mais neutro */
+.video-indicator {
+  text-align: center;
+  margin-top: 10px;
+  color: var(--azul);
+  font-weight: bold;
 }
 
-.message-card.open h3::before {
-    content: '🔓';
+/* Mensagens futuras */
+.locked {
+  opacity: 0.6;
+  text-align: center;
 }
 
-.message-content {
-    border-top: 1px solid #e0e0e0;
+.locked span {
+  font-size: 2em;
 }
 
-/* ------------------- FOOTER ------------------- */
+.future-message {
+  margin-top: 15px;
+  padding: 15px;
+  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.6);
+}
+
 footer {
-    background-color: #333333;
-    color: #ffffff;
-    text-align: center;
-    padding: 15px;
-    font-size: 0.9em;
-    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.05);
-}
-
-/* MEDIA QUERY - Responsividade mantida */
-@media (min-width: 600px) {
-    .gallery-grid {
-        grid-template-columns: repeat(4, 1fr);
-    }
+  text-align: center;
+  margin-top: 40px;
+  font-size: 0.9em;
 }
