@@ -279,12 +279,16 @@ footer {
 }
 
 .zoom-modal img {
-  max-width: none;
-  max-height: none;
+  max-width: 90vw;
+  max-height: 90vh;
+  width: auto;
+  height: auto;
+
   cursor: grab;
   user-select: none;
   transform-origin: center;
 }
+
 
 .zoom-close {
   position: absolute;
