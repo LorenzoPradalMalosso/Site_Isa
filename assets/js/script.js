@@ -142,90 +142,19 @@ setInterval(updateMessages, 60000);
 const zoomModal = document.getElementById("zoomModal");
 const zoomImg = document.getElementById("zoomImg");
 
-let scale = 1;
-let posX = 0;
-let posY = 0;
-let startX = 0;
-let startY = 0;
-let isDragging = false;
-
 // abrir zoom
 photoImg.addEventListener("click", () => {
   zoomImg.src = photoImg.src;
-  resetZoom();
   zoomModal.classList.add("active");
 });
 
-// fechar
+// fechar ao clicar fora
+zoomModal.addEventListener("click", (e) => {
+  if (e.target === zoomModal) {
+    closeZoom();
+  }
+});
+
 function closeZoom() {
   zoomModal.classList.remove("active");
 }
-
-// aplicar transform
-function applyTransform() {
-  zoomImg.style.transform =
-    `translate(${posX}px, ${posY}px) scale(${scale})`;
-}
-
-// reset
-function resetZoom() {
-  scale = 1;
-  posX = 0;
-  posY = 0;
-  applyTransform();
-}
-
-// scroll = zoom
-zoomModal.addEventListener("wheel", (e) => {
-  e.preventDefault();
-
-  const delta = e.deltaY < 0 ? 0.1 : -0.1;
-  scale = Math.min(Math.max(1, scale + delta), 4);
-
-  applyTransform();
-});
-
-// mouse down
-zoomImg.addEventListener("mousedown", (e) => {
-  isDragging = true;
-  startX = e.clientX - posX;
-  startY = e.clientY - posY;
-  zoomImg.style.cursor = "grabbing";
-});
-
-// mouse move
-window.addEventListener("mousemove", (e) => {
-  if (!isDragging) return;
-  posX = e.clientX - startX;
-  posY = e.clientY - startY;
-  applyTransform();
-});
-
-// mouse up
-window.addEventListener("mouseup", () => {
-  isDragging = false;
-  zoomImg.style.cursor = "grab";
-});
-
-// duplo clique = reset
-zoomImg.addEventListener("dblclick", resetZoom);
-
-/* 📱 TOUCH (celular) */
-zoomImg.addEventListener("touchstart", (e) => {
-  isDragging = true;
-  const t = e.touches[0];
-  startX = t.clientX - posX;
-  startY = t.clientY - posY;
-});
-
-zoomImg.addEventListener("touchmove", (e) => {
-  if (!isDragging) return;
-  const t = e.touches[0];
-  posX = t.clientX - startX;
-  posY = t.clientY - startY;
-  applyTransform();
-});
-
-zoomImg.addEventListener("touchend", () => {
-  isDragging = false;
-});

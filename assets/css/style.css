@@ -266,7 +266,6 @@ footer {
   display: flex;
   justify-content: center;
   align-items: center;
-  overflow: hidden;
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.3s ease;
@@ -279,16 +278,11 @@ footer {
 }
 
 .zoom-modal img {
-  max-width: 90vw;
-  max-height: 90vh;
-  width: auto;
-  height: auto;
-
-  cursor: grab;
-  user-select: none;
-  transform-origin: center;
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 20px;
+  animation: zoomIn 0.3s ease;
 }
-
 
 .zoom-close {
   position: absolute;
@@ -297,5 +291,20 @@ footer {
   font-size: 2em;
   color: white;
   cursor: pointer;
-  z-index: 1000;
+}
+
+@keyframes zoomIn {
+  from {
+    transform: scale(0.85);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Cursor de zoom */
+#carouselImg {
+  cursor: zoom-in;
 }
