@@ -108,9 +108,25 @@ function prevVideo() {
 }
 
 // ===== MENSAGEM FUTURA =====
+const messageContents = [
+  `
+  <p>💌 Primeira mensagem</p>
+  <p>
+    Hoje estou te fazendo esse pedido, mas já pensando nele há muito tempo. Você é tudo que eu sempre quis, e poder confirmar esse compromisso me deixa ainda mais feliz.<br> Por essa nossa nova fase, e por poder ser OFICIALMENTE seu namorado, e logo mais noivo, esposo, pai dos seus filhos, porque isso é tudo que eu penso, em ter um futuro e criar uma família ao seu lado!<br>Eu te amo muito, meu amor, e pra sempre vou amar!❤
+  </p>
+  `,
+  `
+  <p>💌 Segunda mensagem</p>
+  <p>
+    Aqui você escreve a MENSAGEM SECRETA 2 💙<br>
+    Pode ser longa, tipo carta.
+  </p>
+  `,
+];
+
 const futureMessages = document.querySelectorAll(".future-message");
 
-function updateMessages() {
+function updateFutureMessages() {
   const now = new Date();
 
   futureMessages.forEach((msg, index) => {
@@ -118,10 +134,7 @@ function updateMessages() {
 
     if (now >= openDate) {
       msg.classList.remove("locked");
-      msg.innerHTML = `
-        <p>💌 Mensagem especial ${index + 1}</p>
-        <p>Hoje estou te fazendo esse pedido, mas já pensando nele há muito tempo. Você é tudo que eu sempre quis, e poder confirmar esse compromisso me deixa ainda mais feliz.<br> Por essa nossa nova fase, e por poder ser OFICIALMENTE seu namorado, e logo mais noivo, esposo, pai dos seus filhos, porque isso é tudo que eu penso, em ter um futuro e criar uma família ao seu lado!<br>Eu te amo muito, meu amor, e pra sempre vou amar com todo o meu coração!❤</p>
-      `;
+      msg.innerHTML = messageContents[index];
     } else {
       const diff = openDate - now;
       const days = Math.ceil(diff / 86400000);
@@ -135,8 +148,8 @@ function updateMessages() {
   });
 }
 
-updateMessages();
-setInterval(updateMessages, 60000);
+updateFutureMessages();
+setInterval(updateFutureMessages, 60000);
 
 //zoom modal
 const zoomModal = document.getElementById("zoomModal");
