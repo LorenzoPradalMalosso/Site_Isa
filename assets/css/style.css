@@ -179,7 +179,6 @@ footer {
 /* ===================== */
 
 @media (max-width: 768px) {
-
   body {
     font-size: 15px;
   }
@@ -254,4 +253,58 @@ footer {
   .video-indicator {
     font-size: 0.9em;
   }
+}
+
+/* ===================== */
+/* 🔍 ZOOM NA FOTO */
+/* ===================== */
+
+.zoom-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 999;
+}
+
+.zoom-modal.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.zoom-modal img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 20px;
+  animation: zoomIn 0.3s ease;
+}
+
+.zoom-close {
+  position: absolute;
+  top: 20px;
+  right: 25px;
+  font-size: 2em;
+  color: white;
+  cursor: pointer;
+}
+
+@keyframes zoomIn {
+  from {
+    transform: scale(0.85);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Cursor de zoom */
+#carouselImg {
+  cursor: zoom-in;
 }

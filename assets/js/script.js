@@ -69,8 +69,6 @@ function prevPhoto() {
   showPhoto();
 }
 
-
-
 function nextPhoto() {
   photoIndex = photoIndex >= totalPhotos ? 1 : photoIndex + 1;
   showPhoto();
@@ -139,3 +137,23 @@ function updateMessages() {
 
 updateMessages();
 setInterval(updateMessages, 60000);
+
+const zoomModal = document.getElementById("zoomModal");
+const zoomImg = document.getElementById("zoomImg");
+
+// abrir zoom
+photoImg.addEventListener("click", () => {
+  zoomImg.src = photoImg.src;
+  zoomModal.classList.add("active");
+});
+
+// fechar ao clicar fora
+zoomModal.addEventListener("click", (e) => {
+  if (e.target === zoomModal) {
+    closeZoom();
+  }
+});
+
+function closeZoom() {
+  zoomModal.classList.remove("active");
+}
