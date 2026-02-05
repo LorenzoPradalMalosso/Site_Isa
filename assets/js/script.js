@@ -120,7 +120,7 @@ function updateMessages() {
       msg.classList.remove("locked");
       msg.innerHTML = `
         <p>💌 Mensagem especial ${index + 1}</p>
-        <p>Escreva aqui o texto que você quiser ❤️</p>
+        <p>Hoje estou te fazendo esse pedido, mas já pensando nele há muito tempo. Você é tudo que eu sempre quis, e poder confirmar esse compromisso me deixa ainda mais feliz.<br> Por essa nossa nova fase, e por poder ser OFICIALMENTE seu namorado, e logo mais noivo, esposo, pai dos seus filhos, porque isso é tudo que eu penso, em ter um futuro e criar uma família ao seu lado!<br>Eu te amo muito, meu amor, e pra sempre vou amar com todo o meu coração!❤</p>
       `;
     } else {
       const diff = openDate - now;
